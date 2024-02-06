@@ -1,0 +1,96 @@
+<!-- Created by Kanishk Raj -->
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>QR Code Generator</title>
+        
+    <meta name="viewport"content="width=device-width, initial-scale=1.0">
+         <style type="text/css">
+    body {
+    margin: 0;
+    text-align: center;
+}
+
+#title {
+    color: #24aed3;
+}
+
+#embed {
+    box-sizing: border-box;
+    display: block;
+    width: 80%;
+    margin: 15px auto;
+    padding: 15px;
+    resize: none;
+    font: inherit;
+}
+
+#size, button {
+    padding: 5px;
+    font: inherit;
+    display: block;
+    margin: 15px auto;
+}
+
+img {
+    max-width: 100%;
+}
+    </style>
+    </head>
+    
+   
+    
+    <body>
+        
+        <img src='http://www.hit-counts.com/counter.php?t=MTQxNDkxMA==' border='0' alt="Visitor Counter">
+        <h1 id="title">QR Code Generator</h1>
+        <textarea id="embed" 
+        placeholder="Write text/url to embed in QR code"></textarea>
+        <select id="size">
+            <option selected>100x100</option>
+            <option>150x150</option>
+            <option>200x200</option>
+            <option>250x250</option>
+            <option>300x300</option>
+            <option>350x350</option>
+            <option>400x400</option>
+            <option>500x500</option>
+        </select>
+        <button onclick="generate()">
+            Generate
+        </button>
+        
+<script type="text/javascript">
+function generate(){
+
+var s = document.getElementById("size"),
+ size = s.options[s.selectedIndex].text,
+text_ = document.getElementById("embed").value;
+text_ = text_.trim();
+ 
+ if( text_ === undefined || text_ == ""){
+   alert("Text couldn't be blank or whitespaces");
+   return 0;
+ }
+
+var url = "http://chart.apis.google.com/chart?cht=qr&chs=" + size + "&chl=" + text_ + "&chld=H|0";
+
+var qr = document.getElementsByTagName("img")[1];
+
+qr.setAttribute("src", url);
+
+var p = document.getElementsByTagName("p")[0];
+
+p.innerText = "Link: " + url;
+
+}
+   </script>
+        <p></p>
+        <img src="">
+        
+     
+    </body>
+  </html>
